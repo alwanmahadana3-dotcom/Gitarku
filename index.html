@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+      
+      /* bagian 1*/
+      body{
+        background-color: #fff2f5;
+        color: #2C1A1D;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, h4, h5, .font-display {
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 700;
+        color: #2C1A1D;
+      }
+      html { 
+        scroll-behavior: smooth; 
+      }
+      .bg-emas {
+           background: linear-gradient(180deg, #013b53 0%, #11b5fc 50%, #29bfff 100%);
+        }
+
+        .nav-link{
+            color: rgb(255, 255, 255) !important;
+        }
+
+        .nav-item > .nav-link:hover,
+        .active{
+          border-bottom: 2px solid rgb(253, 254, 255) !important;
+          color: rgb(240, 240, 240) !important;
+        }
+
+      /* bagian 2 */
+      #main-content {
+        background-color: rgb(154, 219, 255);
+      }
+      
+      .text-content h1 {
+        font-size: 3rem;
+        line-height: 1.12;
+      }
+
+      @media (max-width: 768px) {
+        .text-content h1 {font-size: 2rem; }
+      }
+      .hero-section {
+        position: relative;
+        overflow: hidden;
+        padding: 4rem 0 5rem;
+      }
+
+      /* Maskot animasi */
+      @keyframes floatMascot {
+        0%, 100% { transform: translateY(0px) rotate(0deg);}
+        50% { transform: translateY(-10px) rotate(1.5deg);}
+      }
+      .animate-mascot {
+        animation: floatMascot 4.5s ease-in-out infinite;
+      }
+      .hero-image-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .hero-pod{
+        position: absolute;
+        inset: 1rem;
+        background: linear-gradient(180deg, #afe2ff 0%, #17b9ff 50%, #132b35 100%);
+        border-radius: 44px;
+        box-shadow: 0 14px 28px -6px #00d9ff;
+        border: 4px solid #0099ff;
+        transform: rotate(1deg);
+      }
+
+      /* TRUST BAR */
+      .trust-bar {
+        padding: 2rem 0;
+        background-color: #fff6f6;
+        border-top: 1px solid #f7f7f7;
+        border-bottom: 1px solid #f7f0f2;
+      }
+      .trust-icon{
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background-color: #fddee8;
+        color: #ff0000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      /*-- KATEGORI --*/
+.kategori-card {
+    background: #fff;
+    border: 1px solid #F2CED6;
+    border-radius: 24px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+}
+
+.kategori-card:hover {
+    box-shadow: 0 14px 28px -6px rgba(185, 16, 50, 0.12);
+    transform: translateY(-3px);
+}
+
+.kategori-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    background-color: #ECE7EC;
+    color: #108cdf;
+    transition: transform 0.3s ease;
+}
+
+/*-- BEST SELLER --*/
+.bestseller-section {
+    padding: 4rem 0;
+    background-color:rgb(154, 219, 255) ;
+    border-top: 1px solid rgb(154, 219, 255);
+    border-bottom: 1px solid rgb(154, 219, 255);
+}
+
+.product-card {
+    background-color: #f2fdff;
+    border: 1px solid #F2CED6;
+    border-radius: 30px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 14px 28px -6px rgba(216, 67, 96, 0.12);
+}
+
+.product-img-wrap {
+    position: relative;
+    height: 220px;
+    background-color: #FFF8F0;
+    border: 1px solid #F2CED6;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-img-wrap.choco {
+    background-color: rgba(255, 238, 200);
+}
+
+.product-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #D84360;
+    border: 1px solid #F2CED6;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.product-tag.green {
+    color: #5B8A61;
+}
+
+.product-tag .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #D84360;
+}
+
+.product-tag.green .dot {
+    background-color: #5B8A61;
+}
+
+.product-icon {
+    width: 500px;
+    height: 200px;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-icon {
+    transform: scale(1.05);
+}
+
+.product-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(242, 206, 214, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* TENTANG */
+.tentang-section {
+  padding: 4rem 0; 
+}
+
+.tentang-card {
+  background: linear-gradient(180deg,  #63a5fc  0%,rgb(133, 212, 255) 100%); 
+  border: 1px solid #f2ced6;
+  border-radius: 36px;
+  padding: 3rem 2rem;
+  box-shadow: 0 14px 28px -6px rgba(216, 67, 96, 0.12);
+}
+
+.mascot-badge-circle {
+  width: 192px;
+  height: 192px;
+  margin: 0 auto;
+  background: #fff;
+  border: 4px solid #f2ced6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+/* ================= TESTIMONI ================= */
+.testimoni-section {
+  padding: 4rem 0;
+  background-color:rgb(154, 219, 255);
+  border-top: 1px solid rgb(154, 219, 255);
+  border-bottom: 1px solid rgb(154, 219, 255);
+}
+
+.testi-card {
+  background-color: #e1f4fc;
+  border: 1px solid #a31433;
+  border-radius: 24px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.testi-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+}
+
+.testi-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  background-color: #FCE7EC;
+  color: #D84360;
+}
+.testi-avatar img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100px;
+  
+}
+
+.testi-avatar.cream {
+  background-color: #ece9e6;
+  color: #2C1A1D;
+}
+
+/*--  GALERI  --*/
+.galeri-section {
+  padding: 4rem 0;
+}
+.galeri-box {
+  aspect-ratio: 1 / 1;
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.galeri-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.galeri-box:hover {
+  opacity: 0.9;
+}
+.galeri-1 {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.171), rgba(0, 0, 0, 0.281)),
+    url(GAMBAR/gambar-galeri\ 1.jpg);
+  background-size: cover;
+}
+.galeri-2 {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.171), rgba(0, 0, 0, 0.281)),
+    url(GAMBAR/gambar-galeri2.jpg);
+  background-size: cover;
+}
+.galeri-3 {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.171), rgba(0, 0, 0, 0.281)),
+    url(GAMBAR/gambar-galeri\ 3.jpg);
+  background-size: cover;
+}
+.galeri-4 {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.171), rgba(0, 0, 0, 0.281)),
+    url(GAMBAR/gambar-galeri\ 4.jpg);
+  background-size: cover;
+}
+
+.cta-section {padding: 4rem 0;}
+.cta-box{
+  background: linear-gradient(90deg, #087afc 0%, #78c0fc 100%) ;
+  border-radius: 36px;
+  padding: 3rem 2rem;
+  color: #fff;
+  box-shadow: 0 14px 28px -6px #3e5966;
+  position: relative;
+  overflow: hidden;
+}
+.cta-box::after{
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 256px;
+  height: 256px;
+  background-color: #6fc8fc;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* ==================== FOOTER ==================== */
+.footer-Gitarku {
+  background-color: #cfe9f8;
+  border-top: 1px solid #F2CED6;
+  padding: 4rem 0 3rem;
+}
+
+.footer-Gitarku h4 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.footer-Gitarku a {
+  color: #73575C;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.2s ease;
+}
+
+.footer-Gitarku a:hover { 
+  color: #D84360; 
+}
+
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background-color: #FFF8F0;
+  border: 1px solid #F2CED6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #2C1A1D;
+  transition: color 0.2s ease;
+}
+
+.social-btn:hover { 
+  color: #D84360; 
+}
+    </style>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-emas sticky-top">
+        <div class="container">
+          <a class="navbar-brand" href="#"> <img src="GAMBAR/logo gitar aku transparan.png" width="70" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto m-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Best Seller</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Types of Guitars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Guitar Brands</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav gap-4">
+              <li class="nav-item">
+                <a href="#" class="btn btn-light position-relative rounded-pill">
+                  <i class="bi bi-cart3"></i>
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <span class="visually-hidden">keranjang kosong</span>
+                    99+
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="btn btn-danger">pesan sekarang</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- MAIN CONTENT-->
+      <main id="main-content">
+        <section id="home" class="hero-section">
+          <div class="container position-relative" style="z-index: 1;">
+            <div class="row align-items-center g-5">
+            <div class="col-lg-7 text-content text-center text-lg-start">
+              <h1 class="mb-3" >
+                Temukan Suara Terbaikmu Bersama Gitarku
+              </h1>
+              <p class="text-secondary mb-4 mx-auto mx-lg-0" style="max-width: 36rem; color: #000000 !important;">
+                Dari pemula hingga musisi profesional, wujudkan perjalanan musikmu dengan koleksi gitar berkualitas tinggi, original, dan bergaransi resmi. Saatnya petik melodi impianmu hari ini.
+              </p>
+              <div class="action d-flex flex-colum flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                <a href="#" class="btn btn-danger fw-bold px-4 py-3 rounded-4 d-inline-flex align-items-center justify-content-center gap-2">Lihat Koleksi</a>
+                <a href="#" class="btn btn-info fw-bold px-4 py-3 rounded-4 border">Tentang Gitarku</a>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="hero-image-wrapper">
+                <div class="hero-pod"></div>
+                <img
+                    src="GAMBAR/logo-hero.png"
+                    alt="Mascot Gitarku"
+                    class="img-fluid posisition-relative animate-mascot"
+                    style="z-index: 1; max-width: 360px;"
+                  />
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
+
+        <!--TRUST BAR-->
+        <section class="trust-bar">
+          <div class="container">
+            <div class="row g-4 text-center">
+               <div class="col-6 col-md-3">
+                <div class="d-flex align-items-center justify-content-center gap-3">
+                  <div class="trust-icon"><i class="bi bi-shield-check"></i> 
+                  </div>
+                  <div class="text-start">
+                    <h4 class="h6 fw-bold mb-0">Garansi 5 Bulan</h4>
+                    <p class="small text-secondry mb-0">Perlindungan produk selama lima bulan</p>
+                  </div>
+                </div>
+               </div>
+                <div class="col-6 col-md-3">
+                  <div class="d-flex align-items-center justify-content-center gap-3">
+                    <div class="trust-icon"><i class="bi bi-music-note-list"></i> 
+                    </div>
+                    <div class="text-start">
+                      <h4 class="h6 fw-bold mb-0">Pilihan Gitar</h4>
+                      <p class="small text-secondry mb-0">Tersedia pilihan gitar sesuai kebutuhan bermain</p>
+                    </div>
+                  </div>
+               </div>
+                <div class="col-6 col-md-3">
+                  <div class="d-flex align-items-center justify-content-center gap-3">
+                    <div class="trust-icon"><i class="bi bi-heart"></i>
+                    </div>
+                    <div class="text-start">
+                      <h4 class="h6 fw-bold mb-0">Khusus Pecinta Gitar</h4>
+                      <p class="small text-secondry mb-0">Pilihan produk untuk menemani aktivitas bermusik</p>
+                    </div>
+                  </div>
+               </div>
+                <div class="col-6 col-md-3">
+                  <div class="d-flex align-items-center justify-content-center gap-3">
+                    <div class="trust-icon"><i class="bi bi-music-note-beamed"></i> 
+                    </div>
+                    <div class="text-start">
+                      <h4 class="h6 fw-bold mb-0"> Produk Gitar</h4>
+                      <p class="small text-secondry mb-0">Menyediakan gitar untuk kebutuhan bermusik</p>
+                    </div>
+                  </div>
+               </div>
+               </div>
+              </div>
+            
+        </section>
+        <!-- KATEGORI CONTENT -->
+        <section id="kategori" class="py-5">
+          <div class="container">
+            <div class="div text-center mx-auto mb-5" style="max-width: 36rem;">
+              <span
+              class="text-danger fw-bold text-uppercase small"
+              style="letter-spacing: 0.05em"
+              >Pilihan Instrument
+            </span>
+
+              <h2 class="mt-1">Koleksi Gitar Lengkap untuk Musikmu</h2>
+            </div>
+            <div class="row g-4">
+              <div class="col-6 col-md-3">
+                <div class="kategori-card">
+                  <div class="kategori icon"><svg width="64px" height="64px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M703.90625 865.90625l-39.9375-15.65625 148.6875-380.0625c6.84375-17.53125-2.4375-37.3125-20.34375-43.125l-260.0625-84.9375c-16.6875-5.4375-34.6875 3.1875-40.875 19.59375L361.8125 704.46875l-61.40625-23.15625 181.875-481.125c6.09375-16.21875 23.8125-24.84375 40.40625-19.78125l389.0625 120.1875c18.1875 5.625 27.84375 25.5 20.90625 43.3125l-199.125 509.0625c-4.6875 11.71875-17.90625 17.53125-29.625 12.9375z" fill="#360682"></path><path d="M241.0625 658.15625m-129.375 0a129.375 129.375 0 1 0 258.75 0 129.375 129.375 0 1 0-258.75 0Z" fill="#360682"></path><path d="M614.375 802.90625m-129.375 0a129.375 129.375 0 1 0 258.75 0 129.375 129.375 0 1 0-258.75 0Z" fill="#360682"></path><path d="M246.53333333 379.36666667L142.43333333 118.66666667c-6.8-16.9 2.4-36 19.8-41.3l107.9-32.9c14.4-4.4 29.7 2.5 36 16.2l13.2 28.8c7.5 16.3-0.9 35.4-17.9 41l-73.7 24.3c-6.9 2.3-10.5 9.9-7.8 16.6L290.33333333 350.96666667c2.1 5.4-0.5 11.4-5.9 13.6l-37.9 14.8z" fill="#E51C5A"></path><path d="M211.53333333 379.36666667m-84.8 0a84.8 84.8 0 1 0 169.6 0 84.8 84.8 0 1 0-169.6 0Z" fill="#E51C5A"></path></g></svg>
+                 
+                  </div>
+                  <h3 class="h6 mb1">Gitar Akustik</h3>
+                  <p class="small text-secondary mb-0"> Suara jernih dan alami untuk setiap lagu</p>
+                </div>
+              </div>
+                
+                  <div class="col-6 col-md-3">
+                    <div class="kategori-card">
+                      <div class="kategori icon"><svg width="64px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style>.cls-1{fill:#ccc;}.cls-2{fill:#eaeaea;}.cls-3{fill:#b24040;}.cls-4{fill:#ce5959;}.cls-5{fill:#6c2e7c;}</style> </defs> <g id="Icons"> <path class="cls-1" d="M6,8v8H4a2.006,2.006,0,0,1-2-2V10a1.679,1.679,0,0,1,.07-.5A2,2,0,0,1,4,8Z"></path> <path class="cls-2" d="M6,8v3H4A2,2,0,0,1,2.07,9.5,2,2,0,0,1,4,8Z"></path> <path class="cls-3" d="M18,3V21a2,2,0,0,1-3.2,1.6L6,16V8l8.8-6.6A2,2,0,0,1,18,3Z"></path> <path class="cls-4" d="M18,3V16a2,2,0,0,1-3.2,1.6L6,11V8l8.8-6.6A2,2,0,0,1,18,3Z"></path> <path class="cls-2" d="M18,9h1a3,3,0,0,1,3,3v0a3,3,0,0,1-3,3H18a0,0,0,0,1,0,0V9A0,0,0,0,1,18,9Z"></path> </g> <g data-name="Layer 4" id="Layer_4"> <path class="cls-5" d="M17.342.317A2.983,2.983,0,0,0,14.2.6L5.667,7H4a3,3,0,0,0-3,3v4a3,3,0,0,0,3,3H5.667L14.2,23.4A3,3,0,0,0,19,21V16a4,4,0,0,0,0-8V3A2.984,2.984,0,0,0,17.342.317ZM3,14V10A1,1,0,0,1,4,9H5v6H4A1,1,0,0,1,3,14Zm14,7a1,1,0,0,1-1.6.8L7,15.5v-7l8.4-6.3A1,1,0,0,1,17,3V21Zm4-9a2,2,0,0,1-2,2V10A2,2,0,0,1,21,12Z"></path> </g> </g></svg>
+                        <i class="bi"></i>
+                      </div>
+                      <h3 class="h6 mb-1">Gitar Klasik</h3>
+                      <p class="small text-secondary mb-0">Senar nilon lembut dengan nada hangat</p>
+                    </div>
+                  </div>
+                
+                  <div class="col-6 col-md-3">
+                    <div class="kategori-card">
+                      <div class="kategori icon"><svg width="64px" height="64px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M903.323852 907.170589h25.879725" fill="#FEDEBB"></path><path d="M929.203577 918.674964h-25.878701c-6.353208 0-11.502328-5.150143-11.502328-11.502327s5.150143-11.503352 11.502328-11.503352h25.878701c6.353208 0 11.503352 5.150143 11.503352 11.503352s-5.150143 11.502328-11.503352 11.502327z" fill=""></path><path d="M788.010815 907.170589h64.466891" fill="#FEDEBB"></path><path d="M852.477706 918.674964h-64.466891c-6.353208 0-11.502328-5.150143-11.502328-11.502327s5.150143-11.503352 11.502328-11.503352h64.466891c6.353208 0 11.502328 5.150143 11.502328 11.503352s-5.149119 11.502328-11.502328 11.502327z" fill=""></path><path d="M169.680324 907.170589h571.119138" fill="#FEDEBB"></path><path d="M740.799462 918.674964H169.680324c-6.353208 0-11.503352-5.150143-11.503352-11.502327s5.150143-11.503352 11.503352-11.503352h571.119138c6.353208 0 11.503352 5.150143 11.503352 11.503352s-5.150143 11.502328-11.503352 11.502327z" fill=""></path><path d="M82.9685 907.170589h33.596749" fill="#FEDEBB"></path><path d="M116.565249 918.674964H82.969523c-6.353208 0-11.503352-5.150143-11.503351-11.502327s5.150143-11.503352 11.503351-11.503352h33.595726c6.353208 0 11.503352 5.150143 11.503351 11.503352s-5.150143 11.502328-11.503351 11.502327z" fill=""></path><path d="M173.784056 319.305806a7.261395 7.261395 0 0 1-7.26549 7.263442 7.261395 7.261395 0 0 1-7.262419-7.263442 7.267538 7.267538 0 0 1 7.262419-7.264467 7.267538 7.267538 0 0 1 7.26549 7.264467z" fill="#FED62C"></path><path d="M339.97805 195.51807c-6.119763 0-11.098917-4.979154-11.098916-11.098917 0-6.119763 4.979154-11.098917 11.098916-11.098917 6.119763 0 11.098917 4.979154 11.098917 11.098917-0.001024 6.119763-4.979154 11.098917-11.098917 11.098917z m0-14.527909a3.434111 3.434111 0 0 0-3.430015 3.430016 3.434111 3.434111 0 0 0 3.430015 3.430016 3.434111 3.434111 0 0 0 3.430016-3.430016 3.434111 3.434111 0 0 0-3.430016-3.430016z" fill="#2BA9FC"></path><path d="M831.013998 368.620219c0 5.702017-4.622842 10.326907-10.329979 10.326907-5.698946 0-10.31974-4.625914-10.31974-10.326907 0-5.704065 4.620794-10.321788 10.31974-10.321788 5.707137 0 10.329979 4.618747 10.329979 10.321788zM839.85832 617.525717a8.463436 8.463436 0 1 1-16.926872-0.002048 8.463436 8.463436 0 0 1 16.926872 0.002048z" fill="#FD5C1E"></path><path d="M936.584767 312.041339c0 4.01363-3.245716 7.264466-7.259347 7.264467s-7.264466-3.249812-7.264467-7.264467a7.262419 7.262419 0 0 1 14.523814 0z" fill="#FED62C"></path><path d="M93.267762 273.279089c-15.891724 0-28.8193-12.9286-28.8193-28.818277 0-15.886605 12.9286-28.811109 28.8193-28.811109s28.8193 12.924504 28.8193 28.811109c0 15.889676-12.927576 28.818276-28.8193 28.818277z m0-49.961509c-11.663078 0-21.151423 9.48425-21.151423 21.142209 0 11.66103 9.488345 21.149375 21.151423 21.149375s21.151423-9.488345 21.151423-21.149375c0-11.656934-9.488345-21.142208-21.151423-21.142209zM925.92612 565.81746c-16.732334 0-30.344889-13.609484-30.344889-30.337722 0-16.725167 13.612555-30.332603 30.344889-30.332602 16.727215 0 30.337722 13.607436 30.337722 30.332602 0 16.728238-13.610508 30.337722-30.337722 30.337722z m0-53.0004c-12.503688 0-22.675988 10.167181-22.675988 22.663702 0 12.498568 10.172301 22.668821 22.675988 22.668821 12.498568 0 22.668821-10.170253 22.668821-22.668821 0-12.49652-10.170253-22.663702-22.668821-22.663702z" fill="#2BA9FC"></path><path d="M141.53474 424.846881c-15.891724 0-28.820324-12.926552-28.820324-28.817252s12.929624-28.818276 28.820324-28.818277c15.889676 0 28.818276 12.9286 28.818276 28.818277s-12.9286 28.817252-28.818276 28.817252z m0-49.967651c-11.664102 0-21.152447 9.487321-21.152447 21.149375 0 11.66103 9.488345 21.148351 21.152447 21.148351 11.663078 0 21.149375-9.487321 21.149375-21.148351 0-11.662054-9.486298-21.149375-21.149375-21.149375z" fill="#FDD72C"></path><path d="M416.1029 121.332459a6.367543 6.367543 0 0 1-6.370614-6.366519v-6.367543a6.936823 6.936823 0 0 0-6.940919-6.942966 6.941943 6.941943 0 0 0-6.942966 6.942966v6.367543a6.364471 6.364471 0 0 1-6.364471 6.366519h-6.3614a6.941943 6.941943 0 1 0 0 13.881837h6.3614a6.366519 6.366519 0 0 1 6.364471 6.370614v6.362424a6.939895 6.939895 0 0 0 6.942966 6.942966 6.935799 6.935799 0 0 0 6.940919-6.942966v-6.362424a6.368567 6.368567 0 0 1 6.370614-6.370614h6.363448a6.941943 6.941943 0 0 0 6.942966-6.940919 6.941943 6.941943 0 0 0-6.942966-6.940918h-6.363448z" fill="#FD5C1E"></path><path d="M858.910778 204.006079a5.166525 5.166525 0 0 1-5.167549-5.171644v-5.170621a5.637513 5.637513 0 0 0-11.272978 0v5.170621a5.166525 5.166525 0 0 1-5.167549 5.171644h-5.167549a5.634441 5.634441 0 0 0-5.636489 5.632393 5.63956 5.63956 0 0 0 5.636489 5.639561h5.167549a5.165501 5.165501 0 0 1 5.167549 5.163454v5.17062a5.632393 5.632393 0 0 0 5.641608 5.632394c3.112611 0 5.631369-2.517734 5.63137-5.632394v-5.17062a5.165501 5.165501 0 0 1 5.167549-5.163454h5.164478a5.637513 5.637513 0 0 0 5.63956-5.639561 5.631369 5.631369 0 0 0-5.63956-5.632393h-5.164478z" fill="#2BA9FC"></path><path d="M807.684771 482.869439a6.422833 6.422833 0 0 1-6.43-6.426929v-6.426928a7.010543 7.010543 0 0 0-14.020061 0v6.426928a6.423857 6.423857 0 0 1-6.427952 6.426929h-6.420785c-3.874382 0-7.016686 3.142304-7.016686 7.008495 0 3.87131 3.143328 7.007471 7.016686 7.007471h6.420785a6.43 6.43 0 0 1 6.427952 6.435119v6.426928a7.011567 7.011567 0 0 0 7.007471 7.008495 7.008495 7.008495 0 0 0 7.01259-7.008495v-6.426928a6.43 6.43 0 0 1 6.43-6.435119h6.420785a7.010543 7.010543 0 0 0 7.014639-7.007471c0-3.866191-3.143328-7.008495-7.014639-7.008495h-6.420785z" fill="#FDD62C"></path><path d="M222.111444 114.863551a4.855264 4.855264 0 0 0-4.856289 4.85936l-0.003071 21.354152c0 2.678484 2.17678 4.841954 4.860383 4.85936 2.674388 0 4.848097-2.180876 4.855265-4.85936v-21.354152a4.857312 4.857312 0 0 0-4.856288-4.85936zM222.11042 188.654967a4.85424 4.85424 0 0 0-4.857312 4.853216l0.003071 21.358248a4.857312 4.857312 0 0 0 9.712576 0v-21.358248a4.860384 4.860384 0 0 0-4.858335-4.853216zM200.14296 152.196458c1.894188 1.893164 4.967892 1.885997 6.866175-0.013311 1.89214-1.887021 1.89214-4.958677 0-6.864127l-15.107428-15.098213a4.838882 4.838882 0 0 0-6.862079 0c-1.896236 1.894188-1.902379 4.973011 0 6.860032l15.103332 15.115619zM244.076855 182.39186a4.848097 4.848097 0 0 0-6.861055 0.007167 4.853216 4.853216 0 0 0 0 6.866175l15.10538 15.109476a4.871646 4.871646 0 0 0 6.866175 0c1.893164-1.902379 1.898283-4.986322 0-6.873342l-15.1105-15.109476zM200.752172 167.291599a4.85936 4.85936 0 0 0-4.861408-4.851168h-21.354152a4.853216 4.853216 0 0 0-4.856288 4.851168 4.862431 4.862431 0 0 0 4.856288 4.85936h21.359272c2.680532 0 4.851169-2.180876 4.856288-4.85936zM269.688323 162.440431h-21.364391a4.853216 4.853216 0 0 0-4.851169 4.855264 4.849121 4.849121 0 0 0 4.856288 4.855264h21.359272c2.679508 0 4.853216-2.180876 4.853216-4.85936a4.847073 4.847073 0 0 0-4.853216-4.851168zM200.14296 182.400051l-15.103332 15.102309a4.863455 4.863455 0 0 0 0 6.873342c1.894188 1.887021 4.968915 1.894188 6.862079 0l15.107428-15.109476c1.896236-1.893164 1.89214-4.973011 0-6.873342a4.852193 4.852193 0 0 0-6.866175 0.007167zM244.080951 152.196458l15.10538-15.115619a4.853216 4.853216 0 0 0 0-6.860032 4.842978 4.842978 0 0 0-6.866175 0l-15.10538 15.101285a4.866527 4.866527 0 0 0 0 6.874366 4.858336 4.858336 0 0 0 6.866175 0z" fill="#FED62C"></path><path d="M661.152447 550.392628h-100.757483l32.398803-126.832771c1.258355-7.944326-5.105092-14.387637-14.213576-14.387636h-71.344329c0.027645-0.177132 0.101365-0.33993 0.12389-0.517062l17.037452-170.876222c1.013646-7.974019-2.858688-9.413602-8.64364-3.213976L343.023085 411.876302c-5.783928 6.193482-3.087014 11.222807 6.019422 11.222807h100.523014c-0.032764 0.154607-0.10546 0.305118-0.126962 0.460748l-32.545219 127.400003c-1.259379 7.944326 5.105092 14.384565 14.211528 14.384565h71.667877l-16.972947 170.367351c-1.010575 7.972995 2.857664 9.413602 8.640569 3.212952l172.731502-177.30315c5.782904-6.198602 3.087014-11.22895-6.019422-11.22895z" fill="#FDD72C"></path><path d="M661.152447 550.392628h-100.757483l32.398803-126.832771c1.258355-7.944326-5.105092-14.387637-14.213576-14.387636h-71.344329c0.027645-0.177132 0.101365-0.33993 0.12389-0.517062l17.037452-170.876222c1.013646-7.974019-2.858688-9.413602-8.64364-3.213976l-15.844626 16.265442-21.184187 163.882061c-0.023549 0.177132-0.095221 0.340954-0.124914 0.518086h71.349449c9.106436 0 15.471931 6.441263 14.211528 14.385589l-32.397779 126.833795h100.753387c9.106436 0 11.805398 5.022158 6.02147 11.221783L487.938695 714.24602l-2.138897 21.46678c-1.010575 7.972995 2.857664 9.413602 8.640569 3.212952l172.731502-177.30315c5.782904-6.199626 3.087014-11.229974-6.019422-11.229974z" fill="#ED8A23"></path><path d="M454.011231 800.994705c-5.279153 0-10.597213-1.23071-15.072616-3.329675-9.23135-4.328987-14.296511-12.316317-13.217336-20.849377l19.493753-178.728399H397.15795c-10.524517 0-20.982482-4.591102-27.290639-11.979458-4.742637-5.554578-6.765834-12.319388-5.697922-19.046315l0.188395-0.933783 27.889612-113.74854c-11.556594-0.053242-28.464012-0.107508-44.119218-0.158703-14.664086-0.046075-29.327147-0.093174-40.335963-0.140272-6.335802-0.027645-10.985266-0.047099-14.461356-0.143344h-3.881549v-0.172013c-4.421137-0.304094-6.012255-0.941974-7.421121-2.338554-4.330011-2.136849-7.69245-5.566865-9.624522-10.013598a19.76713 19.76713 0 0 1-1.027981-3.003056l-6.063449-7.477434h5.597581c0.58771-4.868575 2.870974-9.704385 6.700306-13.804022l107.04721-115.180956c4.326939-4.649463 11.603692-4.917721 16.257252-0.594877 4.652535 4.324892 4.919769 11.603692 0.594877 16.257251l-105.400803 113.405538c10.432368 0.067576 32.266722 0.137201 52.093237 0.200682 14.663062 0.046075 29.3251 0.093174 40.332891 0.141296 23.59339 0.100341 23.59339 0.100341 27.072552 4.149807l3.853904 4.486666-32.545219 132.738541c0.534468 1.195898 4.901339 4.348441 10.241925 4.348441h73.708481l-22.01763 201.851825c2.131729 0.926616 5.78188 1.375078 7.321804 0.756651l0.117747-0.112628 235.424-226.961588H559.175516l39.692963-141.056586c0.244709-1.953573 0.034812-3.132065-0.124914-3.596909-0.304094-0.098293-0.948118-0.232422-1.982242-0.232422H503.59083l2.189067-13.361703c0.109556-0.762795 3.867215-26.848321 4.209192-29.25138l19.820372-185.075464c-0.768938 0.539588-1.46518 1.116035-2.017054 1.705793l-37.781368 40.643128c-4.325915 4.655607-11.604716 4.918745-16.256228 0.59283-4.653559-4.325915-4.919769-11.603692-0.593853-16.257251l37.793655-40.655415c7.254228-7.782552 23.160286-15.792407 34.196746-10.616667 6.261059 2.934455 9.575376 9.290735 8.649783 16.58899l-20.955861 195.714656c-0.041979 0.340954-1.286 8.990737-2.431727 16.96578h66.348793c10.297215 0 16.265442 4.460044 19.45894 8.200298 4.848097 5.675396 6.724879 13.783544 5.287344 22.827523l-0.286688 1.310573-31.670821 112.547523h108.914778c14.793095 0 19.830611 7.925896 21.311149 11.333387 1.423201 3.277457 3.737181 11.967172-5.494169 21.849712l-0.42184 0.426961-241.43216 232.751659c-4.784616 4.950486-11.567856 7.024877-18.417649 7.024878z" fill=""></path><path d="M434.755019 274.443246c-2.805446 0-5.617035-1.018766-7.830675-3.080871-4.653559-4.325915-4.915673-11.603692-0.588734-16.256227l6.986994-7.512247c4.323868-4.653559 11.609836-4.917721 16.256227-0.588734 4.653559 4.325915 4.915673 11.603692 0.588734 16.256228l-6.986993 7.512246a11.473659 11.473659 0 0 1-8.425553 3.669605z" fill=""></path></g></svg>
+                        <i class=""></i>
+                      </div>
+                      <h3 class="h6 mb-1">Gitar Listrik</h3>
+                      <p class="small text-secondary mb-0"> Karakter suara modern untuk pertunjukan panggung</p>
+                    </div>
+                  </div>
+                <div class="col-6 col-md-3">
+                      <div class="kategori-card">
+                        <div class="kategori icon"><svg height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 503.607 503.607" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g transform="translate(1 1)"> <g> <polygon style="fill:#FFE100;" points="296.967,133.295 330.541,133.295 330.541,66.148 296.967,66.148 "></polygon> <polygon style="fill:#FFE100;" points="330.541,124.902 397.689,124.902 397.689,74.541 330.541,74.541 "></polygon> <path style="fill:#FFE100;" d="M364.115,74.541v50.361"></path> <path style="fill:#FFE100;" d="M448.049,124.902V74.541c-15.108,10.072-35.252,10.072-50.361,0v50.361 C412.797,114.83,432.941,114.83,448.049,124.902"></path> </g> <polygon style="fill:#FFA800;" points="473.229,91.328 473.229,108.115 448.049,124.902 448.049,74.541 "></polygon> <path style="fill:#FFE100;" d="M271.787,57.754c-69.666,0-125.902,56.236-125.902,125.902v25.18h83.934v-25.18 c0-23.502,18.466-41.967,41.967-41.967h25.18V57.754H271.787z"></path> <path style="fill:#FFA800;" d="M213.033,166.869v41.967h16.787v-25.18c0-23.502,18.466-41.967,41.967-41.967h25.18v-16.787H255 C231.498,124.902,213.033,143.367,213.033,166.869"></path> <g> <polygon style="fill:#FFE100;" points="162.672,275.984 213.033,275.984 213.033,208.836 162.672,208.836 "></polygon> <polygon style="fill:#FFE100;" points="171.066,494.213 204.639,494.213 204.639,275.984 171.066,275.984 "></polygon> <polygon style="fill:#FFE100;" points="53.557,494.213 87.131,494.213 87.131,410.279 53.557,410.279 "></polygon> <polygon style="fill:#FFE100;" points="45.164,410.279 95.525,410.279 95.525,343.131 45.164,343.131 "></polygon> </g> <polygon style="fill:#FFFFFF;" points="45.164,410.279 61.951,410.279 61.951,343.131 45.164,343.131 "></polygon> <polygon style="fill:#FFA800;" points="78.738,410.279 95.525,410.279 95.525,343.131 78.738,343.131 "></polygon> <g> <polygon style="fill:#FFE100;" points="28.377,334.738 112.311,334.738 112.311,208.836 28.377,208.836 "></polygon> <polygon style="fill:#FFE100;" points="36.77,208.836 103.918,208.836 103.918,175.262 36.77,175.262 "></polygon> </g> <polygon style="fill:#FFA800;" points="87.131,208.836 103.918,208.836 103.918,175.262 87.131,175.262 "></polygon> <polygon style="fill:#FFFFFF;" points="36.77,208.836 53.557,208.836 53.557,175.262 36.77,175.262 "></polygon> <polygon style="fill:#FFA800;" points="95.525,334.738 112.311,334.738 112.311,208.836 95.525,208.836 "></polygon> <polygon style="fill:#FFFFFF;" points="28.377,334.738 45.164,334.738 45.164,208.836 28.377,208.836 "></polygon> <g> <polygon style="fill:#FFE100;" points="45.164,175.262 95.525,175.262 95.525,82.934 45.164,82.934 "></polygon> <path style="fill:#FFE100;" d="M95.525,32.574H45.164c10.072,15.108,10.072,35.252,0,50.361h50.361 C85.452,67.826,85.452,47.682,95.525,32.574"></path> <polygon style="fill:#FFE100;" points="78.738,7.393 95.525,32.574 45.164,32.574 61.951,7.393 "></polygon> </g> <path d="M95.525,418.672H45.164c-5.036,0-8.393-3.357-8.393-8.393v-67.148c0-5.036,3.357-8.393,8.393-8.393h50.361 c5.036,0,8.393,3.357,8.393,8.393v67.148C103.918,415.315,100.561,418.672,95.525,418.672z M53.557,401.885h33.574v-50.361H53.557 V401.885z"></path> <path d="M112.311,351.525H28.377c-5.036,0-8.393-3.357-8.393-8.393V208.836c0-5.036,3.357-8.393,8.393-8.393h83.934 c5.036,0,8.393,3.357,8.393,8.393v134.295C120.705,348.167,117.348,351.525,112.311,351.525z M36.77,334.738h67.148V217.229H36.77 V334.738z"></path> <path d="M103.918,217.229H36.77c-5.036,0-8.393-3.357-8.393-8.393v-33.574c0-5.036,3.357-8.393,8.393-8.393h67.148 c5.036,0,8.393,3.357,8.393,8.393v33.574C112.311,213.872,108.954,217.229,103.918,217.229z M45.164,200.443h50.361v-16.787H45.164 V200.443z"></path> <path d="M95.525,183.656H45.164c-5.036,0-8.393-3.357-8.393-8.393V82.934c0-5.036,3.357-8.393,8.393-8.393h50.361 c5.036,0,8.393,3.357,8.393,8.393v92.328C103.918,180.298,100.561,183.656,95.525,183.656z M53.557,166.869h33.574V91.328H53.557 V166.869z"></path> <path d="M95.525,124.902H45.164c-5.036,0-8.393-3.357-8.393-8.393c0-5.036,3.357-8.393,8.393-8.393h50.361 c5.036,0,8.393,3.357,8.393,8.393C103.918,121.544,100.561,124.902,95.525,124.902z"></path> <path d="M45.164,91.328c-3.357,0-5.875-1.679-7.554-4.197s-1.679-5.875,0-8.393c8.393-12.59,8.393-28.538,0-41.128 c-1.679-2.518-1.679-5.875,0-8.393c1.679-3.357,4.197-5.036,7.554-5.036h50.361c3.357,0,5.875,1.679,7.554,4.197 s1.679,5.875,0,8.393c-8.393,12.59-8.393,28.538,0,41.128c1.679,2.518,1.679,5.875,0.839,8.393 c-2.518,3.357-5.036,5.036-8.393,5.036H45.164L45.164,91.328z M58.593,40.967c3.357,10.911,3.357,22.662,0,33.574h23.502 c-3.357-10.911-3.357-22.662,0-33.574H58.593z"></path> <path d="M95.525,40.967L95.525,40.967H45.164c-3.357,0-5.875-1.679-7.554-4.197s-1.679-5.875,0-8.393l16.787-25.18 C56.915,0.679,59.433-1,61.951-1h16.787c2.518,0,5.036,1.679,6.715,3.357L101.4,26.698c1.679,1.679,2.518,3.357,2.518,5.875 C103.918,37.61,100.561,40.967,95.525,40.967z M61.111,24.18h19.305l-5.875-8.393h-8.393L61.111,24.18z"></path> <path d="M330.541,141.689h-33.574c-5.036,0-8.393-3.357-8.393-8.393V66.148c0-5.036,3.357-8.393,8.393-8.393h33.574 c5.036,0,8.393,3.357,8.393,8.393v67.148C338.934,138.331,335.577,141.689,330.541,141.689z M305.361,124.902h16.787V74.541 h-16.787V124.902z"></path> <path d="M397.689,133.295h-67.148c-5.036,0-8.393-3.357-8.393-8.393V74.541c0-5.036,3.357-8.393,8.393-8.393h67.148 c5.036,0,8.393,3.357,8.393,8.393v50.361C406.082,129.938,402.725,133.295,397.689,133.295z M338.934,116.508h50.361V82.934 h-50.361V116.508z"></path> <path d="M364.115,133.295c-5.036,0-8.393-3.357-8.393-8.393V74.541c0-5.036,3.357-8.393,8.393-8.393 c5.036,0,8.393,3.357,8.393,8.393v50.361C372.508,129.938,369.151,133.295,364.115,133.295z"></path> <path d="M397.689,133.295c-1.679,0-2.518,0-4.197-0.839c-2.518-1.679-4.197-4.197-4.197-7.554V74.541 c0-3.357,1.679-5.875,4.197-7.554c2.518-1.679,5.875-1.679,8.393,0c12.59,8.393,28.538,8.393,41.128,0 c2.518-1.679,5.875-1.679,8.393,0c3.357,1.679,5.036,4.197,5.036,7.554v50.361c0,3.357-1.679,5.875-4.197,7.554 c-2.518,1.679-5.875,1.679-8.393,0c-12.59-8.393-28.538-8.393-41.128,0C401.046,132.456,399.367,133.295,397.689,133.295z M406.082,87.97v23.502c10.911-3.357,22.662-3.357,33.574,0V87.97C428.744,91.328,416.993,91.328,406.082,87.97z"></path> <path d="M448.049,133.295c-1.679,0-2.518,0-4.197-0.839c-2.518-1.679-4.197-4.197-4.197-7.554V74.541 c0-3.357,1.679-5.875,4.197-7.554c2.518-1.679,5.875-1.679,8.393,0l25.18,16.787c3.357,2.518,4.197,5.036,4.197,7.554v16.787 c0,2.518-1.679,5.036-3.357,6.715l-25.18,16.787C451.407,132.456,449.728,133.295,448.049,133.295z M456.443,90.489v19.305 l8.393-5.875v-7.554L456.443,90.489z"></path> <path d="M87.131,502.607H53.557c-5.036,0-8.393-3.357-8.393-8.393v-83.934c0-5.036,3.357-8.393,8.393-8.393h33.574 c5.036,0,8.393,3.357,8.393,8.393v83.934C95.525,499.249,92.167,502.607,87.131,502.607z M61.951,485.82h16.787v-67.148H61.951 V485.82z"></path> <path d="M229.82,217.229h-83.934c-5.036,0-8.393-3.357-8.393-8.393v-25.18c0-73.862,60.433-134.295,134.295-134.295h25.18 c5.036,0,8.393,3.357,8.393,8.393v83.934c0,5.036-3.357,8.393-8.393,8.393h-25.18c-18.466,0-33.574,15.108-33.574,33.574v25.18 C238.213,213.872,234.856,217.229,229.82,217.229z M154.279,200.443h67.148v-16.787c0-27.698,22.662-50.361,50.361-50.361h16.787 V66.148h-16.787c-64.63,0-117.508,52.879-117.508,117.508V200.443z"></path> <path d="M213.033,284.377h-50.361c-5.036,0-8.393-3.357-8.393-8.393v-67.148c0-5.036,3.357-8.393,8.393-8.393h50.361 c5.036,0,8.393,3.357,8.393,8.393v67.148C221.426,281.02,218.069,284.377,213.033,284.377z M171.066,267.59h33.574v-50.361h-33.574 V267.59z"></path> <path d="M204.639,502.607h-33.574c-5.036,0-8.393-3.357-8.393-8.393V275.984c0-5.036,3.357-8.393,8.393-8.393h33.574 c5.036,0,8.393,3.357,8.393,8.393v218.229C213.033,499.249,209.675,502.607,204.639,502.607z M179.459,485.82h16.787V284.377 h-16.787V485.82z"></path> </g> </g></svg>
+                          <i class=""></i>
+                        </div>
+                        <h3 class="h6 mb-1">Aksesoris & Perlengkapan</h3>
+                        <p class="small text-secondary mb-0">Komponen pendukung performa dan perawatan gitar</p>
+                      </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Best seller -->
+      <section id="bestseller" class="bestseller-section">
+       <div class="container">
+         <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between mb-5">
+           <div>
+              <span class="text-danger fw-bold text-uppercase small" style="letter-spacing: .05em;"></span>
+              <h2 class="mt-1"></h2>
+          </div>
+          <p class="text-secondary small mb-0 mt-2 mt-md-0" style="max-width: 24rem;">
+
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-md-6 col-lg-4">
+            <article class="product-card">
+                 <div>
+                    <div class="product-img-wrap">
+                        <div class="product-tag">
+                          <span class="dot"></span>
+                          <span>Gitar Akustik</span>
+                       </div>
+                      <img src="GAMBAR/gitar-akustik.jpg" alt="" class="product-icon">
+                      </div>
+                      <div class="mt-3">
+                          <div class="d-flex align-items-center justify-content-between">
+                              <span class="small fw-semibold text-secondary text-uppercase" style="letter-spacing: .05em;">
+                                Gitar
+                              </span>
+                              <span class="small fw-bold text-warning">
+                                  <i class="bi bi-star-fill"></i> 4.9 (323)
+                              </span>
+                          </div>
+                          <h3 class="h5 mt-2 mb-1"> Seri Akustik Natural.</h3>
+                          <p class="small text-secondary mb-0">
+                            Gitar akustik dengan karakter suara jernih dan nyaman dimainkan.
+                          </p>
+                      </div>
+                  </div>
+                  <div class="product-footer">
+                      <div>
+                          <span class="d-block" style="font-size: 11px; color: #73757C;">Harga</span>
+                          <span class="font-display fw-bold fs-5"> Rp 550.000</span>
+                      </div>
+                      <button
+                          onclick="handleAddToCart('Gitarku', 550.000)"
+                          class="btn btn-danger btn-sm fw-bold rounded-3 d-inline-flex align-items-center gap-2"
+                      >
+                          <i class="bi bi-plus-lg"></i> Lihat Detail
+                      </button>
+                    </div>
+                  </article>
+               </div>
+
+                <!-- Card 2 -->
+          <div class="col-md-6 col-lg-4">
+            <article class="product-card">
+                 <div>
+                    <div class="product-img-wrap">
+                        <div class="product-tag">
+                          <span class="dot"></span>
+                          <span> Gitar Listrik</span>
+                       </div>
+                      <img src="GAMBAR/gitar-listrik.jpg" alt="" class="product-icon">
+                      </div>
+                      <div class="mt-3">
+                          <div class="d-flex align-items-center justify-content-between">
+                              <span class="small fw-semibold text-secondary text-uppercase" style="letter-spacing: .05em;">
+                                Gitar
+                              </span>
+                              <span class="small fw-bold text-warning">
+                                  <i class="bi bi-star-fill"></i> 5.0 (184)
+                              </span>
+                          </div>
+                          <h3 class="h5 mt-2 mb-1">Seri Elektrik Modern</h3>
+                          <p class="small text-secondary mb-0">
+                            Gitar listrik untuk berbagai genre musik dengan performa handal.
+                          </p>
+                      </div>
+                  </div>
+                  <div class="product-footer">
+                      <div>
+                          <span class="d-block" style="font-size: 11px; color: #73757C;">Harga</span>
+                          <span class="font-display fw-bold fs-5"> Rp 2.000.000</span>
+                      </div>
+                      <button
+                          onclick="handleAddToCart('Gitarku', 2000000)"
+                          class="btn btn-danger btn-sm fw-bold rounded-3 d-inline-flex align-items-center gap-2"
+                      >
+                          <i class="bi bi-plus-lg"></i> Lihat Detail
+                      </button>
+                    </div>
+                  </article>
+               </div>
+
+               <!-- Card 3 -->
+          <div class="col-md-6 col-lg-4">
+            <article class="product-card">
+                 <div>
+                    <div class="product-img-wrap">
+                        <div class="product-tag">
+                          <span class="dot"></span>
+                          <span>Gitar Klasik</span>
+                       </div>
+                      <img src="GAMBAR/gitar-klasik.jpg" alt="" class="product-icon">
+                      </div>
+                      <div class="mt-3">
+                          <div class="d-flex align-items-center justify-content-between">
+                              <span class="small fw-semibold text-secondary text-uppercase" style="letter-spacing: .05em;">
+                                Gitar
+                              </span>
+                              <span class="small fw-bold text-warning">
+                                  <i class="bi bi-star-fill"></i> 4.7 (135)
+                              </span>
+                          </div>
+                          <h3 class="h5 mt-2 mb-1">Seri Klasik Nilon</h3>
+                          <p class="small text-secondary mb-0">
+                            Gitar klasik senar nilon menghasilkan nada lembut dan hangat.
+                          </p>
+                      </div>
+                  </div>
+                  <div class="product-footer">
+                      <div>
+                          <span class="d-block" style="font-size: 11px; color: #73757C;">Harga</span>
+                          <span class="font-display fw-bold fs-5"> Rp 350.000</span>
+                      </div>
+                      <button
+                          onclick="handleAddToCart('Gitarku', 350.000)"
+                          class="btn btn-danger btn-sm fw-bold rounded-3 d-inline-flex align-items-center gap-2"
+                      >
+                          <i class="bi bi-plus-lg"></i> Lihat Detail
+                      </button>
+                    </div>
+                  </article>
+               </div>
+             </div>
+           </div>
+        </section>
+
+   <!-- TENTANG -->
+<section id="tentang" class="tentang-section">
+  <div class="container">
+    <div class="tentang-card">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5 text-center">
+          <div class="mascot-badge-circle">
+            <img src="GAMBAR/logo-gambar1.png" alt="">
+          </div>
+          <h3 class="h5 mt-4"></h3>
+          <p class="small text-secondary mb-0">
+           
+          </p>
+        </div>
+
+        <div class="col-lg-7">
+          <span
+            class="text-danger fw-bold text-uppercase small"
+            style="letter-spacing: 0.05em"
+            >Mengenal Toko Gitarku</span
+          >
+          <h2 class="mt-2">
+            Wadah Bagi Musik dan Nada Melalui Pilihan Gitar Beragam
+          </h2>
+          <p class="text-secondary">
+            Gitarku hadir sebagai ruang bagi para pecinta musik untuk menemukan instrumen yang tepat. Berawal dari semangat membagikan gairah berkesenian,
+            kami menghadirkan koleksi gitar akustik, listrik, klasik, hingga beragam aksesoris pendukung. Kami percaya bahwa setiap petikan senar membawa cerita, dan kami siap menemani 
+            perjalanan bermusik Anda dengan pilihan instrumen yang melengkapi setiap karakter permainan.
+          </p>
+          <div class="row g-3 pt-2">
+            <div class="col-sm-6">
+              <div
+                class="bg-white rounded-3 border p-3 small fw-semibold d-flex align-items-center gap-2"
+                style="border-color: #f2ced6 !important"
+              >
+                <span
+                  style="width: 8px; height: 8px"
+                ></span>
+               ✨ Koleksi Gitar Akustik dan Klasik
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div
+                class="bg-white rounded-3 border p-3 small fw-semibold d-flex align-items-center gap-2"
+                style="border-color: #f2ced6 !important"
+              >
+                <span
+                  style="width: 8px; height: 8px"
+                ></span>
+                🙌 Pilihan Gitar Listrik Beragam
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div
+                class="bg-white rounded-3 border p-3 small fw-semibold d-flex align-items-center gap-2"
+                style="border-color: #f2ced6 !important"
+              >
+                <span
+                  style="width: 8px; height: 8px"
+                ></span>
+                🎶 Aksesoris Musik Lengkap
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TESTIMONI -->
+<section id="testimoni" class="testimoni-section">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 36rem;">
+      <span class="text-danger fw-bold text-uppercase small" style="letter-spacing: .05em;">Kata Mereka</span>
+      <h2 class="mt-1">Ulasan Pelanggan Setia</h2>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="testi-card">
+          <div>
+            <div class="text-warning mb-2">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="small mb-0">"“Pilihan gitarnya lengkap, ada akustik, listrik, sampai klasik. Jadi gampang cari gitar sesuai kebutuhan."</p>
+          </div>
+          <div class="d-flex align-items-center gap-3 mt-4 pt-3 border-top">
+            <div class="testi-avatar"><img src="GAMBAR/foto-komen1.jpg" alt="sudisman"></div>
+            <div>
+              <h4 class="h6 mb-0">Sudisman</h4>
+              <span class="small text-secondary">Lubuk Pakam</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="testi-card">
+          <div>
+            <div class="text-warning mb-2">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="small mb-0">“Akustiknya punya suara yang jernih dan bass-nya enak. Buat main lagu santai cocok banget.”</p>
+          </div>
+          <div class="d-flex align-items-center gap-3 mt-4 pt-3 border-top">
+            <div class="testi-avatar cream"><img src="GAMBAR/foto-komen3.jpg" alt="eteh blora"></div>
+            <div>
+              <h4 class="h6 mb-0">Eteh Blora</h4>
+              <span class="small text-secondary">Beringin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="testi-card">
+          <div>
+            <div class="text-warning mb-2">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="small mb-0">“Saya suka banget gitar klasiknya. Finishing-nya rapi dan nyaman dipakai latihan setiap hari.”</p>
+          </div>
+          <div class="d-flex align-items-center gap-3 mt-4 pt-3 border-top">
+            <div class="testi-avatar"><img src="GAMBAR/foto-komen2.jpg" alt="mas kiting"></div>
+            <div>
+              <h4 class="h6 mb-0">Mas Kiting</h4>
+              <span class="small text-secondary">Medan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section class="galeri-section">
+  <div class="container text-center">
+    <span
+      class="text-danger fw-bold text-uppercase small"
+      style="letter-spacing: 0.05em"
+      >#GITARKU</span
+    >
+    <h2 class="mt-1 mb-4">Momen Gitarku Di Instagram</h2>
+
+    <div class="row g-3">
+      <div class="col-6 col-md-3">
+        <div class="galeri-box galeri-1">#acoustic guitar</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="galeri-box galeri-2">#electric guitar</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="galeri-box galeri-3">#classical guitar</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="galeri-box galeri-4">#guitar accessories</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box">
+      <div class="row align-items-center g-4 position-relative" style="z-index: 1;">
+        <div class="col-md-8 text-center text-md-start">
+          <h2 class="text-black mb-2">Temukan Gitar dan Aksesoris yang Sesuai dengan Gaya Bermainmu!</h2>
+          <p class="text-light mb-0">
+            Pilih gitar dan aksesoris untuk mendukung latihan, penampilan, dan kebutuhan bermusik kamu.
+          </p>
+        </div>
+        <div class="col-md-4 text-center text-md-end">
+          <a href="#bestseller" class="btn btn-light fw-bold text-danger px-4 py-3 rounded-4">
+            Lihat Produk
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer -->
+<footer class="footer-Gitarku">
+  <div class="container">
+    <div class="row g-4 pb-4 border-bottom" style="border-color: rgba(242, 206, 214, 0.6) !important;">
+      <div class="col-md-4">
+        <div class="d-flex align-items-center mb-3">
+          <img src="gambar/logo-transparant1-1.png" alt="" width="48" class="me-2" />
+          <span class="font-display fs-4 fw-bold">Gitarku<span class="text-danger">.</span></span>
+        </div>
+        <p class="small text-secondary mb-2">
+          Toko gitar dan aksesoris untuk gitaris dan anak band, menyediakan berbagai pilihan perlengkapan untuk kebutuhan bermusik.
+        </p>
+        <p class="small fw-semibold mb-0">Jam Operasional:10.00 - 21.00 WIB</p>
+      </div>
+
+      <div class="col-6 col-md-2">
+        <h4>Navigasi</h4>
+        <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#kategori">Kategori Produk</a></li>
+          <li><a href="#bestseller">Produk</a></li>
+          <li><a href="#tentang">Tentang Kami</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <h4>Layanan Konsumen</h4>
+        <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+          <li><a href="#">Gitar Akustik</a></li>
+          <li><a href="#"> Gitar Listrik</a></li>
+          <li><a href="#"> Gitar Klasik</a></li>
+          <li><a href="#">Aksesoris Gitar</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <h4>Hubungi Kami</h4>
+        <p class="small text-secondary mb-3">
+          Alamat: Sumatera Utara, Deli Serdang, Batang Kuis, Jln. Muspika, Gg. Cemara 1
+        </p>
+        <div class="d-flex align-items-center gap-2">
+          <a href="#https://www.instagram.com/alwann27_?stkn=bWtlMHcxazZ4ZzN2" class="social-btn" aria-label="Instagram Tntyna">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" class="social-btn" aria-label="WhatsApp Pemesanan">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-3 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+      <p class="mb-0">&copy; 2026 Gitarku. Seluruh hak cipta dilindungi undang-undang.
+      </p>
+      <p class="mb-0">Pilihan gitar dan aksesoris untuk menemani perjalanan bermusikmu.</p>
+    </div>
+  </div>
+</footer>
+      </main>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
